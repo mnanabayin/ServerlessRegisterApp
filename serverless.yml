@@ -1,0 +1,27 @@
+org: mnanabayin
+app: serverlessauth
+service: serverlessauth
+
+frameworkVersion: '2'
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: dev
+  region: eu-west-2
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: /status
+          method: get
+      - http:
+          path: /login
+          method: post
+      - http:
+          path: /register
+          method: post
